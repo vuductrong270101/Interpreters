@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+
+  .title {
+    color: #111;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .boxContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .content {
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 20px;
+      column-gap: 20px;
+      .item {
+        max-width: 16%;
+      }
+    }
+  }
+}

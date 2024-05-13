@@ -1,0 +1,132 @@
+:root {
+  --color-primary-1: #1677ff;
+  --color-primary-2: #1677ff;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-slider .slick-arrow {
+  background: rgba(50, 100, 150, .4) !important;
+  width: 20px !important;
+  height:40px !important;
+  border-radius: 8px !important;
+}
+
+.carousel-custom .ant-carousel .ant-carousel .slick-slider button {
+  background-color: #1890ff;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+/* // style cho quill */
+.preview-content .ql-indent-1 {
+  margin-left: 20px; /* Thụt vào 20px cho mức độ 1 */
+}
+
+.preview-content img {
+  object-fit: fill;
+  width: 100%;
+}
+
+
+.preview-content .ql-indent-2 {
+  margin-left: 40px; /* Thụt vào 40px cho mức độ 2 */
+}
+
+.preview-content ol li {
+  list-style: decimal;
+  margin-right: 8px; /* Khoảng cách giữa kí tự dấu chấm và nội dung */
+}
+.preview-content ul li:before {
+  content: "\2022"; /* Kí tự dấu chấm (bullet) */
+  margin-right: 8px; /* Khoảng cách giữa kí tự dấu chấm và nội dung */
+}
+
+.preview-content .ql-indent-3 {
+  margin-left: 60px; /* Thụt vào 60px cho mức độ 3 */
+}
+
+/* Thêm các tùy chỉnh khác cho các mức độ thụt vào khác nếu cần thiết */
+
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, .9);
+}
+
+code {
+  font-family: 'Inter', sans-serif;
+}
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+
+/* Profile.module.scss */
+.upload-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-button {
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.upload-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.btn{
+  background: #81c8f7 !important
+}
+
+.ant-btn{
+  background: #81c8f7 !important;
+  color: white;
+}
