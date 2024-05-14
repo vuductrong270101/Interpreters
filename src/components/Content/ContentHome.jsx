@@ -64,7 +64,7 @@ const ContentHome = (props) => {
           <Banner data={data} />
         </div>
         <div className='w-full py-5 xl:w-[1120px]' >
-          <span className="text-2xl font-bold ">Địa điểm du lịch phổ biến</span>
+          <span className="text-2xl font-bold ">{t('des_popular')}</span>
           <div className="flex flex- gap-4 mt-4 xl:w-[1120px] overflow-auto p-2">
             {TouristDes?.map(item => (
               <Card

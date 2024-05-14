@@ -126,7 +126,7 @@ const RequestBooking = () => {
       render: (text) => <div className="text-data">{convertStringToNumber(text)}</div>,
     },
     {
-      title: "Tác vụ",
+      title: t('action'),
       key: "action",
       width: 90,
       align: 'center',

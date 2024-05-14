@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Avatar, Select } from "antd";
 import NotLogin from "../BtnNotLogin/NotLogin";
@@ -26,7 +26,7 @@ const Header = (props) => {
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenRes, setIsOpenRes] = useState(false);
   const { logout } = useContext(AuthContext)
-  const { user, setUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [language, setLanguage] = useState('en')
   const [fields, setFields] = useState()
   // useEffect(() => {

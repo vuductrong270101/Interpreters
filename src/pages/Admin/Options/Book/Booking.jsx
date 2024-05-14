@@ -138,7 +138,7 @@ const Booking = () => {
       render: (text, data) => <div>{convertStringToNumber(text)}</div>,
     },
     {
-      title: "Tác vụ",
+      title: t('action'),
       key: "action",
       width: 90,
       align: 'center',

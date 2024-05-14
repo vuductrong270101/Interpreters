@@ -4,6 +4,7 @@ import regex from './regex'
 // import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 // import { db } from '../firebase'
 import { toast } from 'react-toastify'
+import i18n from '../trans/i18n'
 
 export const convertStringToNumber = (value, delimiter = '.') => {
     if (value || value === 0) {
@@ -18,8 +19,14 @@ export const partStringToNumber = (value, delimiter = '.') => {
     }
     return '0'
 }
+export function handleChangeLanguage(language) {
+    i18n.changeLanguage(language);
+    saveLanguageToCookie(language);
+}
 
-
+export function saveLanguageToCookie(language) {
+    document.cookie = `i18next=${language};path=/;max-age=31536000`; // Lưu ngôn ngữ vào cookie với thời gian sống 1 năm (31536000 giây)
+}
 export const ToastInfo = (mes = 'Thông báo mới') => {
     toast.info(mes, {
         position: "top-right",

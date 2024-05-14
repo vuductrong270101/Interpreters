@@ -85,7 +85,7 @@ const HotHintAdmin = () => {
         </div>
     },
     {
-      title: "Tác vụ",
+      title: t('action'),
       key: "action",
       width: 300,
       render: (_, record) =>

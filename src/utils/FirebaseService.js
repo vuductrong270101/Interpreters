@@ -1,4 +1,4 @@
-import { FieldValue, addDoc, collection, getDocs, query, serverTimestamp, where, writeBatch } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, serverTimestamp, where, writeBatch } from "firebase/firestore";
 import { auth, db, storage } from "../firebase.jsx";
 import { v4 } from "uuid";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -20,11 +20,9 @@ export function uploadFirebase(file) {
             getDownloadURL(snapshot.ref).then((downloadURL) => {
                 resolve(downloadURL);
             }).catch((error) => {
-                console.error('Error getting download URL:', error);
                 reject(error);
             });
         }).catch((error) => {
-            console.error('Error uploading file:', error);
             reject(error);
         });
     });

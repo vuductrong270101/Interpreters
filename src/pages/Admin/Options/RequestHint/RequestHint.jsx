@@ -5,6 +5,7 @@ import AvatarGroup from "../../../../components/image-group/AvatarGroup";
 import { ToastNoti, ToastNotiError, convertStringToNumber } from "../../../../utils/Utils";
 import AccountFactories from "../../../../services/AccountFactories";
 import { createNotification } from "../../../../services/ChatService";
+import { useTranslation } from "react-i18next";
 const RequestHint = ({ onReload = () => { } }) => {
   const [dataList, setDataList] = useState([]);
   const [namePgt, setNamePgt] = useState("");
@@ -31,7 +32,7 @@ const RequestHint = ({ onReload = () => { } }) => {
   useEffect(() => {
     fetchApiList();
   }, []);
-
+  const { t } = useTranslation()
   const columns = [
     // {
     //   title: '#',
@@ -182,7 +183,7 @@ const RequestHint = ({ onReload = () => { } }) => {
       render: (text) => <div className="text-data">{text}</div>,
     },
     {
-      title: "Tác vụ",
+      title: t('action'),
       key: "action",
       render: (_, record) => (
         <div className="btn-action-group flex flex-col gap-3" >
@@ -257,7 +258,7 @@ const RequestHint = ({ onReload = () => { } }) => {
     <div className="booking-container">
       <div className="booking-title">
         <span className="font-bold text-blue">
-          Yêu cầu làm Interpreters
+          {t('request_imt')}
         </span></div>
       <div className="booking-search">
         <Input

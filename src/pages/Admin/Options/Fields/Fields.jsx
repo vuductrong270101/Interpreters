@@ -56,7 +56,7 @@ const Fields = () => {
             render: (text, data) => <Image src={text} className="name-title-table" style={{ width: 100, height: 100 }} />,
         },
         {
-            title: "Tác vụ",
+            title: t('action'),
             key: "action",
             render: (_, record) => (
                 <div className="btn-action-group" >
