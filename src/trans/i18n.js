@@ -1,27 +1,28 @@
-import { initReactI18next } from 'react-i18next';
-import i18next from 'i18next';
-import Backend from 'i18next-xhr-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import translationVi from './locales/vi/translation.json';
-import translationEN from './locales/en/translation.json';
-import translationKE from './locales/ke/translation.json';
+import { initReactI18next } from 'react-i18next'
+import translationVi from './locales/vi/translation.json'
+import translationEN from './locales/en/translation.json'
+import translationKE from './locales/ke/translation.json'
+import i18next from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-xhr-backend'
 
-const fallbackLng = ['vi'];
-const availableLanguages = ['vi', 'en', 'ke'];
+const i18n = i18next.createInstance()
+const fallbackLng = ['vi']
+const availableLanguages = ['vi,en,ke']
 
 const resources = {
   vi: {
-    translation: translationVi,
+    translation: translationVi
   },
   en: {
-    translation: translationEN,
+    translation: translationEN
   },
   ke: {
-    translation: translationKE,
+    translation: translationKE
   },
-};
+}
 
-i18next
+i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -30,7 +31,7 @@ i18next
     fallbackLng,
 
     detection: {
-      checkWhitelist: true,
+      checkWhitelist: true
     },
 
     debug: false,
@@ -38,13 +39,8 @@ i18next
     whitelist: availableLanguages,
 
     interpolation: {
-      escapeValue: false,
-    },
+      escapeValue: false
+    }
+  })
 
-    // Sử dụng middleware để lưu ngôn ngữ vào cookie
-    middleware: (lng) => {
-      saveLanguageToCookie(lng);
-    },
-  });
-
-export default i18n;
+export default i18n

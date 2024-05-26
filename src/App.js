@@ -8,25 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NotificationProvider } from "./context/Notification.context";
 import "./trans/i18n";
 import { NextUIProvider } from "@nextui-org/react";
+import Cookies from 'js-cookie'
+import i18n from "./trans/i18n";
 export default function App() {
   useEffect(() => {
-    function getLanguageFromCookie() {
-      const cookies = document.cookie.split(';');
-      for (const cookie of cookies) {
-        const [name, value] = cookie.trim().split('=');
-        if (name === 'language') {
-          return value;
-        }
-      }
-      return null;
-    }
-    const language = getLanguageFromCookie();
-    if (language) {
-      // Cập nhật ngôn ngữ trong context ở đây
-    }
-  }, []);
-
-
+    const newValue = Cookies.get('i18next');
+    i18n.changeLanguage(newValue)
+  },[])
   return (
     <NextUIProvider>
       <AuthProvider>

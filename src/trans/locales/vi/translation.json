@@ -1,4 +1,5 @@
 {
+  "view_all": "Xem tất cả",
   "add_dddl": "Thêm địa điểm du lịch",
   "name_dddl": "Tên điểm du lịch",
   "dddl": "Địa điểm du lịch",
@@ -31,6 +32,7 @@
   "save": "Lưu",
   "login": "Đăng nhập",
   "action": "Tác vụ",
+  "choose_province": "Chọn tỉnh thành",
   "hello": "Xin chào",
   "info_res": "Thông tin đăng ký",
   "resgiter_success": "Đăng ký thành công",

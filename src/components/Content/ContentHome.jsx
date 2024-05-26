@@ -103,7 +103,7 @@ const ContentHome = (props) => {
             ))} */}
           </div>
           <div className="w-full flex justify-center">
-            <Button variant="bordered" color='warning' onClick={() => navigate('/description')} >Xem tất cả</Button >
+            <Button variant="bordered" color='warning' onClick={() => navigate('/destination')} >{t('view_all')}</Button >
           </div>
         </div>
 

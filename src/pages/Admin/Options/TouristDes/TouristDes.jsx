@@ -83,12 +83,12 @@ const TouristDes = () => {
             key: "action",
             render: (_, record) => (
                 <div className="btn-action-group" >
-                    <Button
+                    {/* <Button
                         style={{ marginRight: 10 }}
                         onClick={() => onDeleteFiledHandler(record?.id)}
                     >
                         {t('Delete')}
-                    </Button>
+                    </Button> */}
                     <Button
                         type='default'
                         style={{

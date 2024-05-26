@@ -6,12 +6,14 @@ import Temp from "../../../../utils/temp";
 import BookingFactories from "../../../../services/BookingFactories";
 import { convertStringToNumber, getDate, getTime } from "../../../../utils/Utils";
 import DropDownBookingRequest from "../../../../components/Dropdown/DropDownBookingRequest/DropDownBookingRequest";
+import { useTranslation } from "react-i18next";
 
 const RequestBooking = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [bookingList, setBookingList] = useState([]);
   const [monthSelect, setMonthSelect] = useState("");
   const [nameKOL, setNameKOL] = useState("");
+  const { t } = useTranslation()
   const fetchData = async () => {
     try {
       const response = await BookingFactories.getListRequestBookingForHint(user?.id);

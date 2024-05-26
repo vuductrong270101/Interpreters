@@ -213,7 +213,7 @@ const RequestHint = ({ onReload = () => { } }) => {
       const resp = AccountFactories.updateStatusRequestPgt(id, 10);
       if (resp) {
         ToastNoti();
-        createNotification(id, 4, 0, "Đăng ký làm Interpreters thất bại", "Admin đã từ chối yêu cầu đăng ký làm Interpreters của bạn.");
+        // createNotification(id, 4, 0, "Đăng ký làm Interpreters thất bại", "Admin đã từ chối yêu cầu đăng ký làm Interpreters của bạn.");
         onReload()
         fetchApiList();
       }
@@ -229,7 +229,7 @@ const RequestHint = ({ onReload = () => { } }) => {
         ToastNoti();
         fetchApiList();
         onReload()
-        createNotification(id, 3, 0, "Đăng ký làm Interpreters thành công", "Admin đã chấp nhận yêu cầu đăng ký làm Interpreters của bạn, vui lòng đăng nhập lại.");
+        // createNotification(id, 3, 0, "Đăng ký làm Interpreters thành công", "Admin đã chấp nhận yêu cầu đăng ký làm Interpreters của bạn, vui lòng đăng nhập lại.");
       }
     } catch (error) {
       ToastNotiError();

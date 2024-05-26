@@ -12,6 +12,7 @@ export const convertStringToNumber = (value, delimiter = '.') => {
     }
     return '0 đ'
 }
+export const compareTimestamps = (a, b) => b.createdAt?.toDate().getTime() - a.createdAt?.toDate().getTime();
 
 export const partStringToNumber = (value, delimiter = '.') => {
     if (value || value === 0) {
@@ -103,6 +104,12 @@ export const getDate = (timestamp, type = 3) => {
             break;
         case 11:
             result = moment(timestamp).format('MM/YYYY');
+            break;
+        case 12:
+            const milliseconds = timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000;
+            const date = new Date(milliseconds);
+            const formattedDate = moment(date).format('MM/DD/YYYY');
+            result = formattedDate
             break;
         default:
             break;
