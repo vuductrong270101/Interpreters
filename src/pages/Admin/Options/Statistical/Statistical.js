@@ -54,7 +54,6 @@ const Statistical = () => {
 
       <div className="booking-title">
         <div style={{ float: 'right', display: 'flex', gap: 15 }}>
-          <Select onChange={(id) => setHint(id)} options={hintList ?? []} placeholder={t('choose_hint')} />
           <DatePicker defaultValue={dayjs('2024')} onChange={handleChangeYear} picker="year" placeholder={t('year')} />
           <DatePicker onChange={handleChangeMonth} picker="month" placeholder={t('month')} />
         </div>

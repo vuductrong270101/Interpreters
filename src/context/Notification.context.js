@@ -17,6 +17,7 @@ export const NotificationProvider = ({ children }) => {
                 where("toUserId", "==", parseInt(user.id)),
                 // orderBy("createdAt", "desc") // Sắp xếp từ mới đến cũ
             );
+            // Lắng nghe thay đổi và cập nhật state
             return onSnapshot(notificationsQuery, (querySnapshot) => {
                 const updatedNotifications = querySnapshot.docs.map(doc => ({
                     ...doc.data(),

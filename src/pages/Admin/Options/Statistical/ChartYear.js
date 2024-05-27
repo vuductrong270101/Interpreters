@@ -64,7 +64,7 @@ const ChartYear = (props) => {
             const response = await BookingFactories.getBookingTopHINT(year, month,chooseHint);
             if (response?.status === 200) {
                 const responseData = response?.data
-                const labels = responseData.map(item => `${item.user_name}`);
+                const labels = responseData.map(item => `${item.user_name}-${convertStringToNumber(item.total_cost)}`);
                 const totalBooking = responseData.map(item => parseInt(item.total_bookings));
                 const barData3 = {
                     labels: labels,
@@ -224,7 +224,7 @@ const ChartYear = (props) => {
                             >
                                 <CardBody>
                                     <b className='text-right text-xl'> {t('count_quantity')}</b>
-                                    <p className="text-bold text-right text-blue-500 text-5xl">{total?.total}</p>
+                                    <p className="text-bold text-right text-blue-500 text-2xl">{total?.total}</p>
                                 </CardBody>
                             </Card>
                             <Card
@@ -232,7 +232,7 @@ const ChartYear = (props) => {
                             >
                                 <CardBody>
                                     <b className='text-right text-xl'> {t('money')}</b>
-                                    <p className="text-bold text-right text-blue-500 text-5xl">{convertStringToNumber(total?.total_price)}</p>
+                                    <p className="text-bold text-right text-blue-500 text-2xl">{convertStringToNumber(total?.total_price)}</p>
                                 </CardBody>
                             </Card>
                         </div>
