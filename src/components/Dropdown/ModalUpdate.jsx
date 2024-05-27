@@ -303,6 +303,7 @@ const ModalUpdate = ({ openUpdate, onCloseUpdateModalHandler, updateSuccess = ()
                                             placeholder="Chọn trạng thái"
                                             onChange={(value) => onChangeSelectHandler(value, 'flag')}
                                             value={profile.flag}
+                                            disabled
                                             options={Constants.optionStatusAccount}
                                         />
                                     </Row>

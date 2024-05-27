@@ -150,8 +150,7 @@ const Router = () => {
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route
           path="/admin"
-          // element={<ProtectedRoute Component={HomeAdmin} role={"ADMIN"} />}
-          element={<HomeAdmin Component={HomeAdmin} role={"ADMIN"} />}
+          element={<ProtectedRoute Component={HomeAdmin} role={"ADMIN"} />}
         />
 
       </Routes>

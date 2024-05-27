@@ -69,7 +69,7 @@ const RequestBooking = () => {
       align: "left",
       width: 180,
       // render: (text, data) => <div><span style={{ width: 160 }}>{getTime(data?.time_from)}</span> - {getTime(data.time_to)}</div>,
-      render: (text, data) => <div><span style={{ width: 160 }}>{text}</span></div>,
+      render: (text, data) => <div><span style={{ width: 160 }}>{Constants.optionTime.find( i=> i.value === text)?.label}</span></div>,
     },
     {
       title: "Thể loại",

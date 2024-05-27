@@ -187,6 +187,7 @@ const AccountInterpreters = () => {
           style={{
             width: "100%",
           }}
+          disabled
           onChange={(value) => onChangeSelectHandler(value, data?.id)}
           value={data?.flag}
           options={Constants.optionStatusAccount}

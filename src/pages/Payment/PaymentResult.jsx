@@ -98,8 +98,8 @@ function PaymentResult() {
                 )}
 
                 <Link to="/">Trở về trang chủ</Link>
-                <footer class="footer">
-                  <p>&copy; VNPAY 2023</p>
+                <footer className="footer mt-4">
+                  <p>&copy; VNPAY 2024</p>
                 </footer>
               </div>
             </Col>

@@ -18,33 +18,33 @@ export const MessageProvider = ({ children }) => {
 
   const startMessengerListListener = useCallback(async () => {
     if (user) {
-      // const messagesRef = collection(db, "chats");
+      const messagesRef = collection(db, "chats");
 
-      // const firstUserMessagesQuery = query(
-      //   messagesRef,
-      //   where("firstUserId", "==", userId)
-      // );
+      const firstUserMessagesQuery = query(
+        messagesRef,
+        where("firstUserId", "==", userId)
+      );
 
-      // const secondUserMessagesQuery = query(
-      //   messagesRef,
-      //   where("secondUserId", "==", userId)
-      // );
+      const secondUserMessagesQuery = query(
+        messagesRef,
+        where("secondUserId", "==", userId)
+      );
 
-      // const [firstUserMessages, secondUserMessages] = await Promise.all([
-      //   getDocs(firstUserMessagesQuery),
-      //   getDocs(secondUserMessagesQuery),
-      // ]);
+      const [firstUserMessages, secondUserMessages] = await Promise.all([
+        getDocs(firstUserMessagesQuery),
+        getDocs(secondUserMessagesQuery),
+      ]);
 
-      // const combinedMessages = [];
-      // firstUserMessages.forEach((doc) => {
-      //   combinedMessages.push({ ...doc.data(), id: doc.id });
-      // });
-      // secondUserMessages.forEach((doc) => {
-      //   combinedMessages.push({ ...doc.data(), id: doc.id });
-      // });
+      const combinedMessages = [];
+      firstUserMessages.forEach((doc) => {
+        combinedMessages.push({ ...doc.data(), id: doc.id });
+      });
+      secondUserMessages.forEach((doc) => {
+        combinedMessages.push({ ...doc.data(), id: doc.id });
+      });
 
-      // const sortedMessages = combinedMessages.sort((a, b) => b?.updatedAt?.seconds - a?.updatedAt?.seconds);
-      // setMessengerList(sortedMessages);
+      const sortedMessages = combinedMessages.sort((a, b) => b?.updatedAt?.seconds - a?.updatedAt?.seconds);
+      setMessengerList(sortedMessages);
     } else {
       setMessengerList([]);
     }
@@ -53,16 +53,16 @@ export const MessageProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onSnapshot(query(collection(db, "chats")), // Listen for all changes
       (snapshot) => {
-        // const newMessages = [];
-        // snapshot.docChanges().forEach((change) => {
-        //   const message = { ...change.doc.data(), id: change.doc.id };
-        //   // Filter messages based on user ID if needed (optional)
-        //   if (change.doc.data().firstUserId === userId || change.doc.data().secondUserId === userId) {
-        //     newMessages.push(message);
-        //   }
-        // });
-        // const sortedMessages = newMessages.sort((a, b) => b?.updatedAt?.seconds - a?.updatedAt?.seconds);
-        // setMessengerList(sortedMessages);
+        const newMessages = [];
+        snapshot.docChanges().forEach((change) => {
+          const message = { ...change.doc.data(), id: change.doc.id };
+          // Filter messages based on user ID if needed (optional)
+          if (change.doc.data().firstUserId === userId || change.doc.data().secondUserId === userId) {
+            newMessages.push(message);
+          }
+        });
+        const sortedMessages = newMessages.sort((a, b) => b?.updatedAt?.seconds - a?.updatedAt?.seconds);
+        setMessengerList(sortedMessages);
       },
       (error) => {
         console.error('Error fetching messages:', error);

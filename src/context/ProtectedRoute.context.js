@@ -7,11 +7,15 @@ export function ProtectedRoute({ Component, role }) {
   const { user } = useContext(AuthContext);
 
   if (!user) {
-    return <Login />;
+    window.location.href = '/';
   }
-  if (role === "ADMIN") {
-    if (user.role_id === 3) {
-      return <Component />;
-    } else return <NotAdmin />;
-  } else return <Component />;
+  else
+    if (role === "ADMIN") {
+      // 1 user thường 
+      // 2 user hint 
+      // 3 admin 
+      if (user.role_id === 3 || user.role_id === 4 || user.role_id === 5) {
+        return <Component />;
+      } else return <NotAdmin />;
+    } else return <Component />;
 }

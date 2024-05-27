@@ -9,6 +9,7 @@ import { createNotification, sendMessage, sendNewMessageToExistingUser, sendNewM
 import PaymentFactories from "../../services/PaymentFactories";
 import HintFactories from "../../services/HintFatories";
 import { useTranslation } from "react-i18next";
+import Constants from "../../utils/constants";
 
 const BookingDetail = (props) => {
   const { bookingId, isHaveComment } = props;
@@ -101,7 +102,7 @@ const BookingDetail = (props) => {
   const { t } = useTranslation()
   async function submitComment() {
     try {
-      const response = await BookingFactories.updateBooking(bookingId, 5, valueRate, valueComment, booking?.pgt_id, booking?.price, user.userName);
+      const response = await BookingFactories.updateBooking(bookingId, 5, valueRate, valueComment, booking?.hint_id, booking?.cost, user.userName);
       if (response?.status === 200) {
         ToastNoti(t('thanks_comment'));
         setBooking(response?.data);
@@ -150,7 +151,7 @@ const BookingDetail = (props) => {
 
 
           <Form.Item label={t('time')} >
-            <span style={{ float: 'right' }}>{booking?.time}</span>
+            <span style={{ float: 'right' }}>{Constants.optionTime.find( i=> i.value === booking?.time)?.label}</span>
           </Form.Item>
           <Form.Item label={t('total_money_booking')}>
             <span style={{ float: 'right' }}>{convertStringToNumber(booking?.cost)}</span>

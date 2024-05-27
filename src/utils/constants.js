@@ -29,45 +29,60 @@ export default class Constants {
     }
   ];
 
+  static optionTime = [
+    {
+      label: "Buổi sáng",
+      value: '3'
+    },
+    {
+      label: "Buổi chiều",
+      value: '4',
+    },
+    {
+      label: "Cả ngày",
+      value: '7',
+    }
+  ];
+
   static optionsStatusBooking = [
     {
-        value: 1,
-        label: 'Chờ xác nhận'
+      value: 1,
+      label: 'Chờ xác nhận'
     },
     {
-        value: 2,
-        label: 'Interpreters đã xác nhận'
+      value: 2,
+      label: 'Interpreters đã xác nhận'
     },
     {
-        value: 3,
-        label: 'Interpreters đã từ chối'
+      value: 3,
+      label: 'Interpreters đã từ chối'
     },
     {
-        value: 4,
-        label: 'Interpreters xác nhận hoàn thành'
+      value: 4,
+      label: 'Interpreters xác nhận hoàn thành'
     },
     {
-        value: 5,
-        label: 'User + Interpreters xác nhận hoàn thành'
+      value: 5,
+      label: 'User + Interpreters xác nhận hoàn thành'
     },
   ];
 
   static optionsFilterStatusBooking = [
     {
-        value: 1,
-        text: 'Chờ xác nhận'
+      value: 1,
+      text: 'Chờ xác nhận'
     },
     {
-        value: 2,
-        text: 'Interpreters đã xác nhận'
+      value: 2,
+      text: 'Interpreters đã xác nhận'
     },
     {
-        value: 3,
-        text: 'Interpreters đã từ chối'
+      value: 3,
+      text: 'Interpreters đã từ chối'
     },
     {
-        value: 4,
-        text: 'Interpreters Hoàn thành'
+      value: 4,
+      text: 'Interpreters Hoàn thành'
     },
     {
       value: 5,
