@@ -17,7 +17,6 @@ import TextArea from "antd/es/input/TextArea";
 const BookingCreate = (props) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const hint = props.data;
-  console.log("🚀 ~ BookingCreate ~ hint:", hint)
   const onCloseModal = () => {
     props.onCancelOpenHandler();
   };
@@ -31,6 +30,7 @@ const BookingCreate = (props) => {
   const watchtPrice = Form.useWatch('price', form);
 
 
+
   useEffect(() => {
     if (parseInt(watchtypeTravel) == 1 && watchtNumberPerson < 1) {
       form.setFieldValue('numberPerson', 2)
@@ -38,13 +38,13 @@ const BookingCreate = (props) => {
   }, [watchtNumberPerson, watchtypeTravel]);
 
   useEffect(() => {
-    if (parseInt(watchtypeTravel) == 1 && watchtNumberPerson && watchtDateBooking) {
+    if (parseInt(watchtypeTravel) == 1 && watchtNumberPerson) {
       const basePrice = parseInt(watchtTimeBooking) == 7 ? hint?.price?.group_price_day : hint?.price?.group_price_session
       const newValue = watchtNumberPerson * basePrice
       form.setFieldValue('Cost', parseInt(newValue))
       form.setFieldValue('price', parseInt(basePrice))
     }
-    else if (parseInt(watchtypeTravel) == 2) {
+    else {
       const basePrice = parseInt(watchtTimeBooking) == 7 ? hint?.price?.personal_price_day : hint?.price?.personal_price_session
       const newValue = 1 * basePrice
       form.setFieldValue('price', parseInt(basePrice))
@@ -52,48 +52,22 @@ const BookingCreate = (props) => {
     }
   }, [watchtypeTravel, watchtNumberPerson, watchtTimeBooking, watchtDateBooking]);
 
-
   const [errorMessage, setErrorMessage] = useState('');
-  const [errorDate, setErrorDate] = useState(false);
-
-  // const checkDateBooking = (value) => {
-  //   setErrorDate(false);
-  //   const now = new Date();
-  //   const bookingDate = new Date(dateBooking);
-
-  //   if (bookingDate) {
-  //     const timeDiff = bookingDate - now;
-  //     const daysDiff = timeDiff / (1000 * 60 * 60 * 24);
-  //     if (daysDiff >= 15) {
-  //       setErrorDate(true)
-  //       // return Promise.reject(new Error('Ngày đặt phải nằm trong 15 ngày kể từ ngày hiện tại'));
-
-  //     } else if (daysDiff < -1) {
-  //       setErrorDate(true)
-  //       return Promise.reject(new Error('Không thể chọn ngày trong quá khứ'));
-  //     }
-  //     else {
-  //       return Promise.resolve();
-  //     }
-  //   }
-  //   else {
-  //     return Promise.reject(new Error('Bắt buộc chọn ngày'));
-  //   }
-  // };
-
 
   const requestBooking = async (data) => {
     try {
       const response = await BookingFactories.requestBooking(data);
       if (response.status === 200) {
-        // createNotification(hint?.id, 1,
-        //   response?.data[0].id, "Bạn có yêu cầu booking mới",
-        //   "Vui lòng xác nhận yêu cầu booking trong vòng 5 phút.",
-        //   data?.userId,
-        //   hint?.id
-        // );
-        toast.success('Tạo lượt booking thành công, Interpreters sẽ phàn hồi lại trong 5 phút.',
+        createNotification(
+          hint?.id,
+          1,
+          response?.data[0].id,
+          t('new_rq'),
+          t('accept_in'),
+          user?.id,
+          hint?.id
         );
+        toast.success(t('t_success_in'));
         props.onCancelOpenHandler();
       }
       else if (response.status === 201) {
@@ -125,15 +99,7 @@ const BookingCreate = (props) => {
       destination: hint.destination,
       note: data.note,
       typeTravel: parseInt(data.typeTravel) == 1 ? t('travelGroup') : t('travelOlone'),
-    }
-    if (parseInt(data.timeBooking) == 3) {
-      newData.time = t('hire_morning')
-    }
-    if (parseInt(data.timeBooking) == 4) {
-      newData.time = t('hire_afternoon')
-    }
-    if (parseInt(data.timeBooking) == 7) {
-      newData.time = t('hire_day')
+      time: watchtTimeBooking ?? 3
     }
     if (user?.id === hint?.id) {
       ToastNotiError('Không thể tự tạo booking cho bản thân')
@@ -177,8 +143,8 @@ const BookingCreate = (props) => {
             <Radio.Group
               defaultValue={2}
             >
-              <Radio value={1}>Du lịch theo nhóm</Radio>
-              <Radio value={2}>Du lịch cá nhân</Radio>
+              <Radio value={1}>{t('booking_gr')}</Radio>
+              <Radio value={2}>{t('booking_per')}</Radio>
             </Radio.Group>
           </Form.Item>
 
@@ -202,8 +168,6 @@ const BookingCreate = (props) => {
           <Form.Item label="Thời gian thuê" name='timeBooking'>
             <Radio.Group
               defaultValue={3}
-            // onChange={(value) => setTypeTime(value?.target?.value)}
-            // value={}
             >
               <Radio value={3}>Thuê buổi sáng </Radio>
               <Radio value={4}>Thuê buổi chiều </Radio>
@@ -224,23 +188,6 @@ const BookingCreate = (props) => {
               disabledDate={disabledDate}
               style={{ width: '100%' }} />
           </Form.Item>
-
-
-          {/* <Form.Item label="Thời gian" name="timefrom"
-          // rules={[{ required: true, message: 'Bắt buộc chọn giờ' }]}
-          >
-            <Space.Compact block >
-              <TimePicker.RangePicker
-                format='HH:mm'
-                placeholder={['Bắt đầu', 'Kết thúc']}
-                disabled
-                onChange={(e) => setRangeTimeBooking(e)}
-                value={rangeTimeBooking}
-              />
-            </Space.Compact>
-            {errorMessage !== '' && <span style={{ color: 'red' }}> {errorMessage}</span>}
-          </Form.Item> */}
-
 
           <Form.Item
             label="Ghi chú"

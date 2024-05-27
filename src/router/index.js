@@ -93,14 +93,14 @@ const Router = () => {
         <Route
           path="user-home"
           element={
-            <LayoutSideBar>
+            <LayoutHeader>
               <ProfileUser />
-            </LayoutSideBar>}
+            </LayoutHeader>}
         />
         <Route
           path="chat"
           element={
-            <LayoutHeader>
+            <LayoutHeader isHaveFooter={false}>
               <ProtectedRoute Component={Chat} />
             </LayoutHeader>}
         />

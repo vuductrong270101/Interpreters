@@ -19,13 +19,13 @@ const PaymentWallett = () => {
                 </div>
             ),
         },
-        {
-            title: "Ngày giao dịch",
-            dataIndex: "date",
-            key: "date",
-            width: 140,
-            render: (text) => <div className="text-data">{getDate(text, 3)}</div>,
-        },
+        // {
+        //     title: "Ngày giao dịch",
+        //     dataIndex: "date",
+        //     key: "date",
+        //     width: 140,
+        //     render: (text) => <div className="text-data">{getDate(text, 3)}</div>,
+        // },
         {
             title: "Nội dung",
             dataIndex: "description",

@@ -36,8 +36,8 @@ const Chat = () => {
   };
   useEffect(() => {
     async function fetchdata() {
-      // const resp = await PgtFactories.getPGTDetail(id);
-      // setSecondUserInfo(resp[0]);
+      const resp = await HintFactories.getHINTDetail(id);
+      setSecondUserInfo(resp[0]);
     }
     if (id) {
       fetchdata();
@@ -105,14 +105,14 @@ const Chat = () => {
     );
 
     try {
-      // const querySnapshot = await getDocs(notificationsQuery);
-      // const batch = writeBatch(db);
+      const querySnapshot = await getDocs(notificationsQuery);
+      const batch = writeBatch(db);
 
-      // querySnapshot.forEach((doc) => {
-      //   batch.update(doc.ref, { read: true });
-      // });
-      // await batch.commit();
-      // reloadMessengerList(); 
+      querySnapshot.forEach((doc) => {
+        batch.update(doc.ref, { read: true });
+      });
+      await batch.commit();
+      reloadMessengerList(); 
     } catch (e) {
     }
   };
@@ -120,7 +120,7 @@ const Chat = () => {
 
   return (
     <div className={classes.messenger}>
-      <Row>
+      <Row style={{ height: '100%'}}>
         <Col className={classes.sidebar} span={6}  >
           <Row>
             <span className={classes.label} >Chat</span>

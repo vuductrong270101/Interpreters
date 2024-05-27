@@ -40,8 +40,7 @@ const ModalSearch = () => {
 
   const fetchData = async (keyword, category) => {
     try {
-      const response = await HintFactories.getListPGT(20, keyword, category);
-      console.log("🚀 ~ fetchData ~ response:", response)
+      const response = await HintFactories.getListHINT(20, keyword, category);
       setPgtList(response);
     } catch (error) {
       toast.error('Có lỗi xảy ra.')
