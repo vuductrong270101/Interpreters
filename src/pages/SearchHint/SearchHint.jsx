@@ -1,9 +1,9 @@
 import React from "react";
 import ContentSearch from "../../components/Content/ContentSearch";
-const SearchPgt = () => {
+const SearchHint = () => {
   return (
     <ContentSearch />
   );
 };
 
-export default SearchPgt;
+export default SearchHint;

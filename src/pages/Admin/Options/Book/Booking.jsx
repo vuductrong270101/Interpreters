@@ -139,6 +139,22 @@ const Booking = () => {
       render: (text, data) => <div>{convertStringToNumber(text)}</div>,
     },
     {
+      title: 'Trạng thái',
+      dataIndex: 'status',
+      key: 'status',
+      width: 200,
+      render: (_, data) =>
+        <Select
+          style={{
+            width: "100%",
+          }}
+          onChange={(value) => handleChangeStatusBooking(value, data?.id)}
+          value={data?.flag}
+          disabled
+          options={Constants.optionStatusAccount}
+        />
+    },
+    {
       title: t('action'),
       key: "action",
       width: 90,

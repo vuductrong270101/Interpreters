@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from './content.module.scss';
 import Banner from "../Banner/Banner";
 import { ToastNotiError, getDate } from "../../utils/Utils";
-import b5 from '../../assets/banner/b5.jpg'
 import HotInterpreters from "./hot-interpreters/HotInterpreters";
 import TopInterpreters from "./top-interpreters/TopInterpreters";
 import { useTranslation } from 'react-i18next';
@@ -115,7 +114,6 @@ const ContentHome = (props) => {
         <div className={styles.boxContainer} >
           <TopInterpreters />
           <HotInterpreters serchValue={props.serchValue} id={id} />
-          {/* <OutStandingPGT /> */}
         </div>
       </div>
     </>

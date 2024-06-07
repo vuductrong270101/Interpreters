@@ -18,7 +18,6 @@ import LayoutSideBar from "../Layout/LayoutSideBar/LayoutSideBar";
 import LayoutHeader from "../Layout/LayoutOnlyHeader/LayoutHeader";
 import ProfileUser from "../pages/Details/PageEntDetail/Introduce/ProfileUser";
 import TrendingPage from "../pages/Trending/TrendingPage";
-import SearchPgt from "../pages/SearchPgt/SearchPgt";
 import PageInterpreterDetail from "../pages/Details/PageHintDetail/PageHINTDetail";
 import RegisterInterpreters from "../pages/RegisterInterpreters/RegisterInterpreters";
 import DestinationPage from "../pages/Destination/DestinationPage";
@@ -26,6 +25,7 @@ import CreatePostPage from "../pages/POST/CreatePostPage";
 import DetailPostPage from "../pages/POST/DetailPostPage";
 import ListPostPage from "../pages/POST/ListPostPage";
 import DestinationListPage from "../pages/Destination/DestinationListPage";
+import SearchHint from "../pages/SearchHint/SearchHint";
 
 const Router = () => {
   return (
@@ -46,7 +46,7 @@ const Router = () => {
         <Route
           path="/hint" element={
             <LayoutHeader>
-              <SearchPgt />
+              <SearchHint />
             </LayoutHeader>}
         />
         <Route

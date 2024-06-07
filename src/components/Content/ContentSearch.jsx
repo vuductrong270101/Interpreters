@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from './content.module.scss';
-import ModalSearch from "./search-pgt/ModalSearch";
+import ModalSearch from "./search-hint/ModalSearch";
 import Banner from "../Banner/Banner";
 import BannerFactories from "../../services/BannerFactories";
 import { ToastNotiError } from "../../utils/Utils";
